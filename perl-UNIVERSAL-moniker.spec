@@ -1,16 +1,18 @@
-%define real_name UNIVERSAL-moniker
+%define upstream_name    UNIVERSAL-moniker
+%define upstream_version 0.08
+
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	UNIVERSAL::moniker
-Name:		perl-%{real_name}
-Version:	0.08
-Release: %mkrel 6
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/UNIVERSAL/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
-BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+URL:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/UNIVERSAL/%{upstream_name}-%{upstream_version}.tar.bz2
+
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %define _provides_exceptions perl(UNIVERSAL)
 
@@ -24,7 +26,7 @@ them. This module will add a moniker (and plural_moniker) method
 to UNIVERSAL, and so to every class or module.
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -45,4 +47,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/UNIVERSAL/moniker.pm
 %{_mandir}/*/*
-
