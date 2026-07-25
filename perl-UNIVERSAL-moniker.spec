@@ -8,14 +8,14 @@
 %endif
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 
 Summary:	UNIVERSAL::moniker
 License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/UNIVERSAL/%{upstream_name}-%{upstream_version}.tar.bz2
+URL:		https://metacpan.org/dist/UNIVERSAL-moniker
+Source0:	https://cpan.metacpan.org/authors/id/K/KA/KASEI/UNIVERSAL-moniker-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
