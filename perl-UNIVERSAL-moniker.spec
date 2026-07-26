@@ -1,6 +1,4 @@
 %define upstream_name    UNIVERSAL-moniker
-%define upstream_version 0.08
-
 %if %{_use_internal_dependency_generator}
 %define __noautoprov 'perl\\(UNIVERSAL\\)'
 %else
@@ -8,14 +6,14 @@
 %endif
 
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.08
+Release:	6
 
 Summary:	UNIVERSAL::moniker
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/UNIVERSAL-moniker
-Source0:	https://cpan.metacpan.org/authors/id/K/KA/KASEI/UNIVERSAL-moniker-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/K/KA/KASEI/UNIVERSAL-moniker-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -31,7 +29,7 @@ them. This module will add a moniker (and plural_moniker) method
 to UNIVERSAL, and so to every class or module.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -51,9 +49,7 @@ make test
 %changelog
 * Tue Jul 28 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.80.0-1mdv2010.0
 + Revision: 401959
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.08-6mdv2009.0
+- rebuild using %0.08 Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.08-6mdv2009.0
 + Revision: 242114
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
